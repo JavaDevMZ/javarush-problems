@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class ClientGuiView {
     private final ClientGuiController controller;
 
-    private JFrame frame = new JFrame("???");
+    private JFrame frame = new JFrame("Chat");
     private JTextField textField = new JTextField(50);
     private JTextArea messages = new JTextArea(10, 50);
     private JTextArea users = new JTextArea(10, 10);
@@ -41,8 +41,8 @@ public class ClientGuiView {
     public String getServerAddress() {
         return JOptionPane.showInputDialog(
                 frame,
-                "??????? ?????? ???????:",
-                "???????????? ???????",
+                "Enter the server address",
+                "Client configuration",
                 JOptionPane.QUESTION_MESSAGE);
     }
 
@@ -50,16 +50,16 @@ public class ClientGuiView {
         while (true) {
             String port = JOptionPane.showInputDialog(
                     frame,
-                    "??????? ?????? ???????:",
-                    "???????????? ???????",
+                    "Enter the server port",
+                    "Client configuration",
                     JOptionPane.QUESTION_MESSAGE);
             try {
                 return Integer.parseInt(port.trim());
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(
                         frame,
-                        "??????? ??????????? ???? ???????. ????????? ?? ???.",
-                        "???????????? ???????",
+                        "Wrong server port. Try again",
+                        "Client configuration",
                         JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -68,8 +68,8 @@ public class ClientGuiView {
     public String getUserName() {
         return JOptionPane.showInputDialog(
                 frame,
-                "??????? ???? ??'?:",
-                "???????????? ???????",
+                "What's your name?",
+                "Client configuration",
                 JOptionPane.QUESTION_MESSAGE);
     }
 
@@ -78,14 +78,14 @@ public class ClientGuiView {
         if (clientConnected) {
             JOptionPane.showMessageDialog(
                     frame,
-                    "?'??????? ? ???????? ???????????",
-                    "???",
+                    "Connection with the server established",
+                    "Chat",
                     JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(
                     frame,
-                    "?????? ?? ?????????? ?? ???????",
-                    "???",
+                    "Client is not connected to the server",
+                    "Chat",
                     JOptionPane.ERROR_MESSAGE);
         }
 
